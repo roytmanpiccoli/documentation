@@ -76,7 +76,8 @@ We provide several tools to preview the documentation locally and to run quality
 
 First, install the below software:
 
-1. [Node.js](https://nodejs.org/en). If you expect to use JavaScript in other projects, consider using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+1. [Node.js](https://nodejs.org/en). If you expect to use JavaScript in other projects, consider using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).  - If you don't have Homebrew installed, follow the instructions [here](https://brew.sh/).
+
 2. [Docker](https://www.docker.com). You must also ensure that it is running.
    - If you cannot use Docker from docker.com, consider using use [Colima](https://github.com/abiosoft/colima) or [Rancher Desktop](https://rancherdesktop.io). When installing Rancher Desktop, choose Moby/Dockerd as the engine, rather than nerdctl. To ensure it's running, open up the app "Rancher Desktop".
 3. [Tox](https://tox.wiki/) to run Python tools.
@@ -103,6 +104,10 @@ Maintainers: when you release a new version of the image, you need to update the
 ### Tip: Periodically prune Docker
 
 Occasionally, Docker might fail when it runs out of disk space. For example, you might encounter an error like this:
+
+**Important:** Try running `docker system prune` to clear Docker's system space.
+
+> **Warning:** `docker system prune` will remove all unused containers, networks, images, and optionally, volumes. Make sure that no important data is lost before running this command.
 
 ```
 ENOSPC: no space left on device, mkdir '/tmp/xfs-4d1dfe51'
@@ -137,7 +142,8 @@ On Windows, run `python fix` and `python check` instead. Alternatively, use Wind
 
 ### VSCode: optional extensions
 
-You may find it convenient to install the following VSCode extensions to automatically run some of our tools. Setting up these extensions is optional.
+To enhance your productivity when editing notebooks and markdown files, we recommend installing the following VSCode extensions. Setting up these extensions is optional, but highly encouraged for a smoother development experience.
+
 
 - For Jupyter notebooks, add the tool 'squeaky' as a [pre-save
   hook](https://github.com/frankharkins/squeaky?tab=readme-ov-file#jupyter-pre-save-hook).
